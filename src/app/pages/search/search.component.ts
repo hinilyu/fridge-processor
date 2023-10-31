@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, Inject, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { environment } from "src/environments/environments";
+import { environment } from "src/environments/environment";
 import { MealType, Result, CuisineType, RecipeClass, Hit } from "src/app/models/result";
 import { LocalStorageService } from "src/app/service/local-storage.service";
 import { dummy } from "./dummyjson";

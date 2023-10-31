@@ -4,7 +4,7 @@ import { Hit, RecipeClass, Result } from "src/app/models/result";
 import { LocalStorageService } from "src/app/service/local-storage.service";
 import { DialogContent } from "../search/search.component";
 import { HttpClient } from "@angular/common/http";
-import { environment } from "src/environments/environments";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-saved",
