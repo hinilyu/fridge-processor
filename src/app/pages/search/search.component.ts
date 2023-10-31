@@ -19,7 +19,7 @@ import { MatIconModule } from "@angular/material/icon";
   styleUrls: ["./search.component.css"],
 })
 export class SearchComponent implements OnInit {
-  fridge: string[] = this.localStorage.getFridge();
+  fridge: string[] = this.localStorageS.getFridge();
   app_id = environment.app_id;
   app_key = environment.app_key;
   recipe: Result | undefined;
@@ -32,13 +32,13 @@ export class SearchComponent implements OnInit {
   favIconList: { [uri: string]: boolean } = {}; // fav
   favList: RecipeClass[] = [];
 
-  constructor(private http: HttpClient, private localStorage: LocalStorageService, public dialog: MatDialog) {}
+  constructor(private http: HttpClient, private localStorageS: LocalStorageService, public dialog: MatDialog) {}
 
   public ngOnInit(): void {
     // this.recipe = dummy;
-    this.cuisineType = this.localStorage.getCuisineType();
-    this.mealType = this.localStorage.getMealType();
-    this.favList = this.localStorage.getFavList();
+    this.cuisineType = this.localStorageS.getCuisineType();
+    this.mealType = this.localStorageS.getMealType();
+    this.favList = this.localStorageS.getFavList();
 
     this.getResult(this.cuisineType, this.mealType);
 
@@ -61,15 +61,15 @@ export class SearchComponent implements OnInit {
       this.favList = this.favList.filter((item) => {
         return item.uri !== recipe.uri;
       });
-      this.localStorage.setFavList(this.favList);
+      this.localStorageS.setFavList(this.favList);
     } else {
       this.favList.push(recipe);
-      this.localStorage.setFavList(this.favList);
+      this.localStorageS.setFavList(this.favList);
     }
   }
 
   refreshFav() {
-    this.favList = this.localStorage.getFavList();
+    this.favList = this.localStorageS.getFavList();
     const tempFavListOnlyUri: string[] = [];
     this.favList.forEach((item) => tempFavListOnlyUri.push(item.uri!));
     this.recipe!.hits?.forEach((item) => {

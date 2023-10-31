@@ -21,7 +21,7 @@ export class SavedComponent implements OnInit {
   loadingState = true; // progress
   currentRecipe?: RecipeClass;
 
-  constructor(private localStorage: LocalStorageService, public dialog: MatDialog, private http: HttpClient) {}
+  constructor(private localStorageS: LocalStorageService, public dialog: MatDialog, private http: HttpClient) {}
 
   ngOnInit(): void {
     this.refreshFav();
@@ -45,15 +45,15 @@ export class SavedComponent implements OnInit {
       this.favList = this.favList.filter((item) => {
         return item.uri !== recipe.uri;
       });
-      this.localStorage.setFavList(this.favList);
+      this.localStorageS.setFavList(this.favList);
     } else {
       this.favList.push(recipe);
-      this.localStorage.setFavList(this.favList);
+      this.localStorageS.setFavList(this.favList);
     }
   }
 
   refreshFav() {
-    this.favList = this.localStorage.getFavList();
+    this.favList = this.localStorageS.getFavList();
     const tempFavListOnlyUri: string[] = [];
     this.favList.forEach((item) => tempFavListOnlyUri.push(item.uri!));
     this.favList.forEach((item) => {
