@@ -10,7 +10,11 @@ export class LocalStorageService {
   constructor() {}
 
   getFridge(): string[] {
-    return JSON.parse(localStorage.getItem("fridge") || "");
+    try {
+      return JSON.parse(localStorage.getItem("fridge") || "");
+    } catch {
+      return [];
+    }
   }
 
   saveFridge(fridge: string[]) {
