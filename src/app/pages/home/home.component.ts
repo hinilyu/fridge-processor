@@ -78,6 +78,7 @@ export class HomeComponent implements OnInit {
     var input = this.formGroup.get("ingredient")?.value;
     // check if fridge is full
     if (this.fridge.length >= 9) {
+      this.openErrorBar("Fridge Capacity is 9 items", "Dismiss");
       return;
     }
 
