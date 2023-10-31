@@ -3,44 +3,11 @@
   <div class="">
     <p class="mx-auto text-2xl text-center px-20 py-3 bg-caribbean-current text-white rounded-lg">Saved Recipes</p>
   </div>
-  <!-- 
-  <div class="md:container mt-5 grid xl:grid-cols-5 xl:gap-x-10 lg:grid-cols-3 lg:gap-x-6 grid-cols-2 gap-4 overflow-auto">
-    <div
-      appMaterialElevation
-      class="container mat-card-container mb-10 aspect-square"
-      *ngFor="let recipe of favList"
-      style="background-image: url('{{ recipe.images?.LARGE?.url || recipe.images?.REGULAR?.url }}')"
-    >
-      <mat-card class="mat-card p-5 aspect-square h-full">
-        <div class="">
-          <button disabled class="bg-atomic-tangerine text-white button rounded p-1 mb-2 text-sm">
-            {{ recipe?.healthLabels?.at(0) }}
-          </button>
-          <p (click)="openDialog(recipe)" class="text-lg text-white hover:text-caribbean-current font-bold cursor-pointer">
-            {{ recipe?.label }}
-          </p>
-        </div>
-        <mat-card-content class="mt-5"> </mat-card-content>
 
-        <mat-card-actions class="absolute bottom-1 right-5">
-          <button>
-            <mat-icon
-              (click)="toggleFav(recipe)"
-              (mouseenter)="toggleFavIcon(recipe?.uri || '')"
-              (mouseleave)="toggleFavIcon(recipe?.uri || '')"
-              class="text-white z-10"
-              >{{ favIconList[recipe!.uri!] ? "favorite" : "favorite_outline" }}</mat-icon
-            >
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </div>
-  </div> -->
-
-  <mat-accordion class="w-[80%] mt-7">
+  <mat-accordion class="w-[100%] mt-7">
     <mat-expansion-panel class="w-[100%] h-18 mx-3" *ngFor="let recipe of favList">
       <mat-expansion-panel-header class="m-3" (click)="loadContent(recipe.uri!)">
-        <mat-panel-title class="text-lg"
+        <mat-panel-title class="md:text-lg text-sm"
           ><button>
             <mat-icon
               (click)="toggleFav(recipe)"

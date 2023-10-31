@@ -1,6 +1,6 @@
-<div mat-dialog-title>
-  <div class="text-4xl font-extrabold md:ml-8">
-    {{ recipe?.label }}
+<div mat-dialog-title class="overflow-auto">
+  <div class="grid md:text-4xl text-lg font-extrabold md:ml-8">
+    <p class="ml-5 mb-3">{{ recipe?.label }}</p>
     <span
       ><button class="button text-base ml-3 font-lightrounded bg-atomic-tangerine text-white p-1 rounded-md" *ngFor="let type of recipe?.mealType">
         {{ type }}
@@ -16,7 +16,7 @@
 </div>
 <div class="grid lg:grid-cols-2 justify-center relative">
   <div class="mx-auto justify-center">
-    <img class="p-5 lg:h-[30vh] max-h-[500px] aspect-auto" src="{{ recipe?.images?.LARGE?.url || recipe?.images?.REGULAR?.url }}" />
+    <img class="p-5 lg:h-[30vh] sm:w-40 max-h-[500px] aspect-auto" src="{{ recipe?.images?.LARGE?.url || recipe?.images?.REGULAR?.url }}" />
   </div>
   <div class="mt-5 ml-5">
     <h1 class="font-extrabold">Ingredients:</h1>

@@ -16,7 +16,11 @@
           <button disabled class="bg-atomic-tangerine text-white button rounded p-1 mb-2 text-sm">
             {{ hit.recipe?.healthLabels?.at(0) }}
           </button>
-          <p (click)="openDialog(hit)" matTooltip="Show Detail" class="text-lg text-white hover:text-caribbean-current font-bold cursor-pointer">
+          <p
+            (click)="openDialog(hit)"
+            matTooltip="Show Detail"
+            class="md:text-lg text-base text-white hover:text-caribbean-current font-bold cursor-pointer"
+          >
             {{ hit.recipe?.label }}
           </p>
         </div>
@@ -25,10 +29,8 @@
         <mat-card-actions class="absolute bottom-1 right-5">
           <button>
             <mat-icon
-              matTooltip="{{ favIconList[hit.recipe!.uri!] ? 'Save Recipe' : 'Remove from Saved Recipe' }}"
+              matTooltip="{{ favIconList[hit.recipe!.uri!] ? 'Remove from Saved Recipe' : 'Save Recipe' }}"
               (click)="toggleFav(hit.recipe!)"
-              (mouseenter)="toggleFavIcon(hit.recipe?.uri || '')"
-              (mouseleave)="toggleFavIcon(hit.recipe?.uri || '')"
               class="text-white z-10"
               >{{ favIconList[hit.recipe!.uri!] ? "favorite" : "favorite_outline" }}</mat-icon
             >
@@ -46,3 +48,6 @@
 <div class="flex justify-center">
   <button routerLink="home" class="button mt-8 rounded bg-atomic-tangerine text-white p-2 text-lg">Back to Fridge</button>
 </div>
+
+<!-- (mouseenter)="toggleFavIcon(hit.recipe?.uri || '')"
+(mouseleave)="toggleFavIcon(hit.recipe?.uri || '')" -->

@@ -71,21 +71,12 @@
   </div>
 
   <!-- Get recipe button -->
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center mb-8">
     <button
       (click)="getRecipe()"
       class="md:w-60 w-40 h-12 md:text-lg text-sm bg-atomic-tangerine hover:bg-tiffany-blue text-white font-bold py-2 px-4 border-b-4 border-brown-sugar hover:border-caribbean-current rounded"
     >
       Get Recipe
     </button>
-  </div>
-
-  <div id="recipe-view" hidden>
-    <div class="container recipe-box">
-      <div class="container title-box">
-        <p class="rec-title">My Recipes</p>
-      </div>
-      <div class="container-fluid item-box overflow-auto" id="saved-item-box"></div>
-    </div>
   </div>
 </div>
