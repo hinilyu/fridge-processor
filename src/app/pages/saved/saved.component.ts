@@ -40,7 +40,6 @@ export class SavedComponent implements OnInit {
   }
 
   toggleFav(recipe: RecipeClass) {
-    this.favIconList[recipe.uri!] = !this.favIconList[recipe.uri!];
     if (this.favIconList[recipe.uri!]) {
       this.favList = this.favList.filter((item) => {
         return item.uri !== recipe.uri;

@@ -11,8 +11,7 @@
           ><button>
             <mat-icon
               (click)="toggleFav(recipe)"
-              (mouseenter)="toggleFavIcon(recipe?.uri || '')"
-              (mouseleave)="toggleFavIcon(recipe?.uri || '')"
+              matTooltip="{{ favIconList[recipe!.uri!] ? 'Remove from Saved Recipe' : 'Save Recipe' }}"
               class="text-black z-10 mx-3"
               >{{ favIconList[recipe!.uri!] ? "favorite" : "favorite_outline" }}</mat-icon
             ></button
