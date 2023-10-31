@@ -1,0 +1,22 @@
+.mat-toolbar {
+  background-color: #83c5be;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 1920px) {
+  .mat-toolbar {
+    background-color: #83c5be;
+    color: white;
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+}
+
+.mat-button {
+  color: white;
+}
+.spacer {
+  flex: 1 1 auto;
+}

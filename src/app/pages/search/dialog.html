@@ -1,0 +1,39 @@
+<div mat-dialog-title>
+  <div class="text-4xl font-extrabold md:ml-8">
+    {{ recipe?.label }}
+    <span
+      ><button class="button text-base ml-3 font-lightrounded bg-atomic-tangerine text-white p-1 rounded-md" *ngFor="let type of recipe?.mealType">
+        {{ type }}
+      </button>
+      <button class="button ml-3 text-base font-lightrounded bg-atomic-tangerine text-white p-1 rounded-md" *ngFor="let type of recipe?.dishType">
+        {{ type }}
+      </button>
+      <button class="button ml-3 text-base font-lightrounded bg-atomic-tangerine text-white p-1 rounded-md" *ngFor="let type of recipe?.cuisineType">
+        {{ type }}
+      </button></span
+    >
+  </div>
+</div>
+<div class="grid lg:grid-cols-2 justify-center relative">
+  <div class="mx-auto justify-center">
+    <img class="p-5 lg:h-[30vh] max-h-[500px] aspect-auto" src="{{ recipe?.images?.LARGE?.url || recipe?.images?.REGULAR?.url }}" />
+  </div>
+  <div class="mt-5 ml-5">
+    <h1 class="font-extrabold">Ingredients:</h1>
+    <p *ngFor="let ingredient of recipe?.ingredients">{{ingredient?.text}}</p>
+  </div>
+  <button class="absolute top-2 right-14">
+    <mat-icon
+      style="transform: scale(2)"
+      class="z-10"
+      (mouseenter)="toggleFavIcon()"
+      (mouseleave)="toggleFavIcon()"
+      (click)="toggleFav(recipe?.uri || '')"
+      >{{ favIcon ? "favorite" : "favorite_outline" }}</mat-icon
+    >
+  </button>
+</div>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Back</button>
+  <a href="{{ recipe?.url }}" target="_blank" mat-button cdkFocusInitial>Go to Recipe</a>
+</mat-dialog-actions>

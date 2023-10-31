@@ -1,0 +1,93 @@
+<div id="main-view">
+  <!-- title -->
+  <h1 class="animate__animated animate__slideInDown">What's left in your fridge?</h1>
+  <h6>We can surely make something delicious out of them.</h6>
+
+  <!-- autocomplete form -->
+  <div class="flex justify-center mt-24 ms-8">
+    <form [formGroup]="formGroup">
+      <mat-form-field class="autocomplete-container" color="primary">
+        <mat-label> Ingredient </mat-label>
+        <input formControlName="ingredient" matInput type="text" [matAutocomplete]="auto" #input />
+
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredOptions" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <button mat-mini-fab color="#E29578" matSuffix (click)="onAdd()" [attr.aria-label]="'Add Ingredient'" class="m-2">
+        <mat-icon>add</mat-icon>
+      </button>
+    </form>
+  </div>
+
+  <!-- Fridge -->
+  <div id="fridge">
+    <div id="grid">
+      <!-- Ingredient grid -->
+      <div
+        class="grid-item"
+        (mouseover)="hide(false, item)"
+        (mouseleave)="hide(true, item)"
+        matTooltip="{{ item }}"
+        [matTooltipPosition]="'before'"
+        *ngFor="let item of fridge"
+      >
+        <img src="assets/images/ingredients/{{ item }}.webp" />
+        <button mat-mini-fab [hidden]="getHideValue(item)" class="remove-button" color="warn" (click)="onRemove(item)">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center">
+    <span class="">
+      <mat-form-field class="mx-5">
+        <mat-label>Any Meal Type</mat-label>
+        <mat-select [formControl]="mealType" multiple>
+          <mat-select-trigger>
+            {{mealType.value?.[0] || ''}}
+            <span *ngIf="(mealType.value?.length || 0) > 1" class="example-additional-selection">
+              (+{{ (mealType.value?.length || 0) - 1 }} {{ mealType.value?.length === 2 ? "other" : "others" }})
+            </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let type of mealTypeList" [value]="type">{{ type }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Any Cuisine Type</mat-label>
+        <mat-select [formControl]="cuisineType" multiple>
+          <mat-select-trigger>
+            {{cuisineType.value?.[0] || ''}}
+            <span *ngIf="(cuisineType.value?.length || 0) > 1" class="example-additional-selection">
+              (+{{ (cuisineType.value?.length || 0) - 1 }} {{ cuisineType.value?.length === 2 ? "other" : "others" }})
+            </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let type of cuisineTypeList" [value]="type">{{ type }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </span>
+  </div>
+
+  <!-- Get recipe button -->
+  <div class="flex flex-col items-center">
+    <button
+      (click)="getRecipe()"
+      class="md:w-60 w-40 h-12 md:text-lg text-sm bg-atomic-tangerine hover:bg-tiffany-blue text-white font-bold py-2 px-4 border-b-4 border-brown-sugar hover:border-caribbean-current rounded"
+    >
+      Get Recipe
+    </button>
+  </div>
+
+  <div id="recipe-view" hidden>
+    <div class="container recipe-box">
+      <div class="container title-box">
+        <p class="rec-title">My Recipes</p>
+      </div>
+      <div class="container-fluid item-box overflow-auto" id="saved-item-box"></div>
+    </div>
+  </div>
+</div>
