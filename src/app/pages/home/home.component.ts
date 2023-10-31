@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   mealType = new FormControl("");
   cuisineType = new FormControl("");
 
-  constructor(private fb: FormBuilder, private _errorBar: MatSnackBar, private router: Router, private localStorage: LocalStorageService) {}
+  constructor(private fb: FormBuilder, private _errorBar: MatSnackBar, private router: Router, private localStorageS: LocalStorageService) {}
 
   ngOnInit() {
     this.initForm();
@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
 
   initFridge() {
     try {
-      this.fridge = this.localStorage.getFridge();
+      this.fridge = this.localStorageS.getFridge();
       // filter autocomplete options
       this.fridge.forEach((item) => (this.options = this.options.filter((toBefiltered) => toBefiltered !== item)));
       this.filteredOptions = this.options;
@@ -101,7 +101,7 @@ export class HomeComponent implements OnInit {
     }
 
     this.formGroup.setValue({ ingredient: "" });
-    this.localStorage.saveFridge(this.fridge);
+    this.localStorageS.saveFridge(this.fridge);
   }
 
   onRemove(name: string) {
@@ -111,7 +111,7 @@ export class HomeComponent implements OnInit {
       this.options.push(name);
       this.options = this.options.sort((a, b) => a.localeCompare(b)); //add back to autocomplete options
       this.filteredOptions = this.options;
-      this.localStorage.saveFridge(this.fridge);
+      this.localStorageS.saveFridge(this.fridge);
     }
   }
 
@@ -129,10 +129,10 @@ export class HomeComponent implements OnInit {
   }
 
   getRecipe() {
-    this.localStorage.setMealType(this.mealType.value);
-    this.localStorage.setCuisineType(this.cuisineType.value);
+    this.localStorageS.setMealType(this.mealType.value);
+    this.localStorageS.setCuisineType(this.cuisineType.value);
 
-    this.localStorage.saveFridge(this.fridge);
+    this.localStorageS.saveFridge(this.fridge);
     this.router.navigate(["/search"]);
   }
 }
