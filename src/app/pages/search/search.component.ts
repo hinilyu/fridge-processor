@@ -12,6 +12,7 @@ import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from "@angular/common";
 import { MatIconModule } from "@angular/material/icon";
+import { MatTooltipModule } from "@angular/material/tooltip";
 
 @Component({
   selector: "app-search",
@@ -122,7 +123,7 @@ export class SearchComponent implements OnInit {
   selector: "dialog-content",
   templateUrl: "dialog.html",
   standalone: true,
-  imports: [MatDialogModule, MatButtonModule, CommonModule, MatIconModule],
+  imports: [MatDialogModule, MatButtonModule, CommonModule, MatIconModule, MatTooltipModule],
 })
 export class DialogContent implements OnInit {
   recipe: RecipeClass | undefined;
@@ -150,7 +151,7 @@ export class DialogContent implements OnInit {
 
   toggleFav(uri: string) {
     this.favIcon = !this.favIcon;
-    if (this.favIcon) {
+    if (!this.favIcon) {
       if (this.favList !== undefined) {
         this.favList = this.favList.filter((item) => {
           return item.uri !== this.recipe!.uri;
