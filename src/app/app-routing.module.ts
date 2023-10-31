@@ -5,12 +5,12 @@ import { SearchComponent } from "./pages/search/search.component";
 import { SavedComponent } from "./pages/saved/saved.component";
 
 const routes: Routes = [
-  { path: "home", component: HomeComponent },
+  { path: "", component: HomeComponent, pathMatch: "full" },
   { path: "search", component: SearchComponent },
   { path: "saved", component: SavedComponent },
 
   // otherwise redirect to home
-  { path: "**", redirectTo: "home" },
+  { path: "**", redirectTo: "", pathMatch: "full" },
 ];
 
 @NgModule({
