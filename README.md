@@ -25,7 +25,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-#### Remarks
+## Remarks
 The app utilises the free tier of Edamam API service, which limit to 10000 calls/month and 10 calls/minute. If the limit exceeds, the app may not be available to use.
  
 
