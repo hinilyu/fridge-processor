@@ -15,7 +15,7 @@ There are 3 major functions in the webpage.
 
 The fridge accepts up to 9 user inputs and then verify with our ingredients database, which only allow limited ingredients right now because of the limited number of food illustrations. Then the parameter would pass through to Edamam's API to search for recipes that contain user's input ingredients. Data are shown or each recipes: Name, type of meal, cook duration, calories, ingredients list and external link to the recipe. User can also save their favourite recipes when they are logged in.
 
-# Distinctiveness and Complexity
+## Distinctiveness and Complexity
 This application is a recipe search engine with ability to bookmark favourite recipes for users. There are several distinct function implemented in the app. First, there's a interactive fridge that you can add or remove ingredients from. Secondly, the result page is different from what you can get from a Google Search, it provides more specific information like preparation time and calories. It's not related to social media page nor e-commerce store. It's not similiar to other cs50's project too.
 
 In the complexity part, Angular is used to create a single-page web application and the fetch function is ultilized to function with an external API. On the index page, there's a search box with auto-complete function that can render matching results in the drop-down and it renders character-by-character. The webpage is mobile responsive and compatible. 
