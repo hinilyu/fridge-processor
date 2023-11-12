@@ -1,8 +1,10 @@
 # Fridge Processor 
-This is the final project of the course [CS50’s Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/).
-
 ## Production Link
 https://fridge-processor.azurewebsites.net/
+## Description
+This is the final project of the course [CS50’s Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/2020/).
+
+
 
 Have it ever occured to you that there are leftovers in the fridge that you don't know how to deal with but you need to cook them ASAP before it expires? Fridge processor is a web application that allow users to search for recipes using specific ingredients that are left in their fridge. It runs on Django in the backend and handles frontend interaction with Javascript.
 
