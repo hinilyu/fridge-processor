@@ -3,7 +3,7 @@
   <div class="">
     <p class="mx-auto text-2xl text-center px-20 py-3 bg-caribbean-current text-white rounded-lg">Recommendations</p>
   </div>
-
+  <div *ngIf="recipe?.hits?.length == 0" class="text-center font-sans text-lg mt-12">No Results Found. Please adjust your search.</div>
   <div class="md:container mt-5 grid xl:grid-cols-5 xl:gap-x-10 lg:grid-cols-3 lg:gap-x-6 grid-cols-2 gap-4 overflow-auto">
     <div
       appMaterialElevation
